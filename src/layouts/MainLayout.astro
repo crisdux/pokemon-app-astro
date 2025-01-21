@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+// import { ClientRouter } from 'astro:transitions';
 import { siteInfo } from 'src/const/site-info';
 
 interface Props {
@@ -27,8 +27,13 @@ const {title = siteInfo.title, description = siteInfo.description, image} = Astr
     <meta property="og:description" content={description}>
     <meta property="og:image" content={image}>
 
+    <!-- <ClientRouter /> -->
+    <style>
+        @view-transition {
+            navigation:auto;
+        }
+    </style>
 
-    <ClientRouter />
     <title>{title}</title>
 </head>
 <body class="bg-slate-800 text-slate-100 m-auto max-w-3xl">
