@@ -3,20 +3,20 @@ import type { GetStaticPaths } from "astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Pokemones from "../../components/pokemones/Pokemones.astro";
 import AudioPokemon from "../../components/pokemones/AudioPokemon.astro";
+import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
 
 // rutas permitidas
-export const getStaticPaths = (() => {
-    return [
-        {   params : {name: "bulbasaur" }, 
-            props :{name: "ivysaur", url:`https://pokeapi.co/api/v2/version/1/`} 
-        },
-        {   params : {name: "ivysaur"},     
-            props: {name: "ivysaur", url:`https://pokeapi.co/api/v2/version/2/`} 
-        },
-        {   params : {name: "venusaur"},  
-            props: {name: "ivysaur", url: `https://pokeapi.co/api/v2/version/3/`}
-        }
-    ];
+export const getStaticPaths = (async () => {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+    const {results} = await response.json() as PokemonListResponse
+    
+    return results.map(({name, url}) => {
+            return {
+                params: {name},
+                props: {name, url}
+            }
+        })
+    
 }) satisfies GetStaticPaths;
 
 const {name} = Astro.params
