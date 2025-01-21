@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 interface Props {
     title?:string;
 }
@@ -11,6 +13,7 @@ const {title} = Astro.props;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <ClientRouter />
     <title>{title}</title>
 </head>
 <body class="bg-slate-800 text-slate-100 m-auto max-w-3xl">
