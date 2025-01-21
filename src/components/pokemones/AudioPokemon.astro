@@ -1,0 +1,8 @@
+---
+const {audioSrc} = Astro.props
+---
+
+<audio controls class="mt-5">
+    <source src={audioSrc} type="audio/ogg"/>
+    <p>Formano no valido en tu navegador</p>
+</audio>

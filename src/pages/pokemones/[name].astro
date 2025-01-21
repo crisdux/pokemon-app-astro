@@ -1,20 +1,46 @@
 ---
 import type { GetStaticPaths } from "astro";
 import MainLayout from "../../layouts/MainLayout.astro";
+import Pokemones from "../../components/pokemones/Pokemones.astro";
+import AudioPokemon from "../../components/pokemones/AudioPokemon.astro";
 
 // rutas permitidas
 export const getStaticPaths = (() => {
     return [
-        {params : {name: "bulbasaur"},},
-        {params : {name: "ivysaur"} },
-        {params : {name: "venusaur"} },
+        {   params : {name: "bulbasaur" }, 
+            props :{name: "ivysaur", url:`https://pokeapi.co/api/v2/version/1/`} 
+        },
+        {   params : {name: "ivysaur"},     
+            props: {name: "ivysaur", url:`https://pokeapi.co/api/v2/version/2/`} 
+        },
+        {   params : {name: "venusaur"},  
+            props: {name: "ivysaur", url: `https://pokeapi.co/api/v2/version/3/`}
+        }
     ];
 }) satisfies GetStaticPaths;
 
 const {name} = Astro.params
-console.log("params 🟢", Astro.params)
+const {url} = Astro.props
+
+const id = url.split("/").at(-2);
+const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`
 ---
 
 <MainLayout>
-    <h1>{name}</h1>
+
+    <section class="mt-10 mx-10 flex flex-col justify-center items-center">
+        <div>
+            <a href="/">Regresar</a>
+            <h1 class="text-5xl capitalize">{name}</h1>
+        </div>
+        <Pokemones name={name} url={url}/>
+        <AudioPokemon audioSrc={audioSrc}/>
+    </section>
+    
 </MainLayout>
+
+<style>
+    a {
+        @apply hover:underline text-blue-500
+    }
+</style>
