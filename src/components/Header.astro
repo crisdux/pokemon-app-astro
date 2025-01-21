@@ -1,0 +1,10 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const {titulo} = Astro.props
+
+---
+<MainLayout title={titulo}>
+    <h1 class="text-3xl underline">{titulo}</h1>
+</MainLayout>
+
