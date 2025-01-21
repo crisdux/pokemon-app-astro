@@ -1,0 +1,20 @@
+---
+import type { GetStaticPaths } from "astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+// rutas permitidas
+export const getStaticPaths = (() => {
+    return [
+        {params : {name: "bulbasaur"},},
+        {params : {name: "ivysaur"} },
+        {params : {name: "venusaur"} },
+    ];
+}) satisfies GetStaticPaths;
+
+const {name} = Astro.params
+console.log("params 🟢", Astro.params)
+---
+
+<MainLayout>
+    <h1>{name}</h1>
+</MainLayout>
