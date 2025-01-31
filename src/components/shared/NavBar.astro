@@ -1,9 +1,11 @@
 ---
 const links = [
     { href: "/", text: "Listado" },
-    { href: "/pokemon/1", text: "Listado Paginado" },
+    { href: "/pokemones/1", text: "Listado Paginado" },
     { href: "/favorites", text: "Favoritos" },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!-- component -->
@@ -14,12 +16,22 @@ const links = [
         {
             links.map((link) => {
                 return (
-                    <a
-                        href={link.href}
-                        class="text-gray-800 dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6"
-                    >
-                        {link.text}
-                    </a>
+                    <div>
+                        <a
+                            href={link.href}
+                            class="text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6"
+                        >
+                            {link.text}
+                        </a>
+                        {currentPath === link.href ? (
+                            <div
+                                transition:name="menu-line"
+                                class="border-b-2 border-blue-500 mx-4"
+                            />
+                        ):(
+                            <div class="border-b-2 border-transparent"></div>
+                        )}
+                    </div>
                 );
             })
         }
