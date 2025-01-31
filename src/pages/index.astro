@@ -14,9 +14,20 @@ const data = (await response.json()) as PokemonListResponse;
 <MainLayout title={title}>
 	<Header titulo="App Pokemones" />
 	<NavBar />
-	<section class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4 mt-3">
+	<section class="container">
 		{
 			data.results.map(({name, url}) => (<Pokemones name={name} url={url} />))
 		}
 	</section>
 </MainLayout>
+
+
+<!-- class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4 mt-3" -->
+<style>
+	.container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		gap: 2rem;
+		padding: .5em 1em;
+	}
+</style>
