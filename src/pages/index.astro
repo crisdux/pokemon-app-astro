@@ -3,6 +3,7 @@ import Header from "@components/Header.astro";
 import Pokemones from "@components/pokemones/Pokemones.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response.ts"
+import NavBar from "@components/shared/NavBar.astro";
 const title = "Pokémon Static | Home";
 
 
@@ -12,6 +13,7 @@ const data = (await response.json()) as PokemonListResponse;
 
 <MainLayout title={title}>
 	<Header titulo="App Pokemones" />
+	<NavBar />
 	<section class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4 mt-3">
 		{
 			data.results.map(({name, url}) => (<Pokemones name={name} url={url} />))
