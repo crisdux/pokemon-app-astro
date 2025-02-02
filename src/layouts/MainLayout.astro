@@ -1,45 +1,52 @@
 ---
 // import { ClientRouter } from 'astro:transitions';
-import NavBar from '@components/shared/NavBar.astro';
-import { siteInfo } from 'src/const/site-info';
+import NavBar from "@components/shared/NavBar.astro";
+import { siteInfo } from "src/const/site-info";
 
 interface Props {
-    title?:string;
-    image?:string;
-    description?:string;
+    title?: string;
+    image?: string;
+    description?: string;
 }
 
-
-const {title = siteInfo.title, description = siteInfo.description, image} = Astro.props;
+const {
+    title = siteInfo.title,
+    description = siteInfo.description,
+    image,
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- meta seo  -->
-    <meta name="description" content={description}>
-    <meta name="author" content={"Fernando Herrera"} >
+        <!-- meta seo  -->
+        <meta name="description" content={description} />
+        <meta name="author" content={"Fernando Herrera"} />
 
-    <!-- og metadatos  -->
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:image" content={image}>
+        <!-- og metadatos  -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
 
-    <!-- <ClientRouter /> -->
-    <style>
-        @view-transition {
-            navigation:auto;
-        }
-    </style>
+        <!-- <ClientRouter /> -->
+        <style>
+            @view-transition {
+                navigation: auto;
+            }
+        </style>
 
-    <title>{title}</title>
-</head>
-<body class="bg-slate-800 text-slate-100">
-    <main class="mt-10 m-auto max-w-3xl">
-        <slot />
-    </main>
-</body>
+        <title>{title}</title>
+    </head>
+    <body   
+    class="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"
+    >
+        <main class="mt-10 m-auto max-w-3xl">
+            <slot />
+        </main>
+    </body>
 </html>
+/* bg-slate-800 text-slate-100 */
+

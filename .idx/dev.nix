@@ -4,7 +4,7 @@
   # Which nixpkgs channel to use.
   channel = "stable-24.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
-  packages = [ pkgs.nodejs_20 ];
+  packages = [ pkgs.nodejs_20 pkgs.pnpm];
   # Sets environment variables in the workspace
   env = { };
   idx = {
@@ -17,6 +17,11 @@
           "npm ci --prefer-offline --no-audit --no-progress --timing || npm i --no-audit --no-progress --timing";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "src/pages/index.astro" ];
+      };
+
+      onStart = {
+        # start-dev-server = "npm run dev";
+        welcome-message = "bash scripts/welcome.sh";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
