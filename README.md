@@ -46,3 +46,6 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## App de pokemones 
+Esta app esta destinada para poder aprender astro contruyendo una app de pokemones...
