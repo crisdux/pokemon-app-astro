@@ -5,12 +5,12 @@
 <body>
     <nav class="nav-container">
         <div class="nav-container__inner">
-            <a href="#" class="home-link">Ink</a>
+            <a class="home-link" href="/">Ink</a>
             <ul class="top-nav">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Support</a></li>
-                <li class="top-nav__featured"><a href="#">Login</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/support">Support</a></li>
+                <li class="top-nav__featured"><a href="/login">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -26,43 +26,43 @@
         <div class="tile-row">
             <div class="tile">
                 <h4>Work together, even if you're apart</h4>
-                gether on documents in real-time. Use face-to-face <a
-                    href="/features/video-calling">video calls</a
-                > when typing just won't do.
+                <p>
+                    Organize your team conversations into threads. Collaborate
+                    together on documents in real-time. Use face-to-face <a
+                        href="/features/video-calling">video calls</a
+                    > when typing just won't do.
+                </p>
+                <a href="/collaboration" class="button">Read more</a>
             </div>
-            <a href="#" class="button">Read more</a>
-        </div>
-
-        <div class="tile">
-            <h4>Take it with you</h4>
-            <p>
-                Ink is available on a wide array of devices, so you can work
-                from anywhere:
-            </p>
-            <ul class="tag-list">
-                <li>Web</li>
-                <li>Ios</li>
-                <li>Android</li>
-                <li>Windows phone</li>
-            </ul>
-            <a href="#" class="button">Read more</a>
-        </div>
-
-        <div class="tile">
-            <h4>Priced right</h4>
-            <p>
-                Whether you work on a team of three or a three hundred, you'll
-                find our tiered pricing reasonable at every level.
-            </p>
-            <a href="/pricing" class="button">Read more</a>
+            <div class="tile">
+                <h4>Take it with you</h4>
+                <p>
+                    Ink is available on a wide array of devices, so you can work
+                    from anywhere:
+                </p>
+                <ul class="tag-list">
+                    <li>Web</li>
+                    <li>iOS</li>
+                    <li>Android</li>
+                    <li>Windows Phone</li>
+                </ul>
+                <a href="/supported-devices" class="button">Read more</a>
+            </div>
+            <div class="tile">
+                <h4>Priced right</h4>
+                <p>
+                    Whether you work on a team of three or a three hundred,
+                    you'll find our tiered pricing reasonable at every level.
+                </p>
+                <a href="/pricing" class="button">Read more</a>
+            </div>
         </div>
     </div>
+
+    <footer class="page-footer">
+        <div class="page-footer__inner">Copyright &copy; 2017 Ink, Inc.</div>
+    </footer>
 </body>
-
-<footer class="page-footer">
-    <div class="page-footer__inner">Copyright &copy; 2017 Ink, Inc.</div>
-</footer>
-
 
 <style>
     :root {
@@ -73,10 +73,14 @@
         --gray: #868e96;
         --light-gray: #f1f3f5;
         --extra-light-gray: #f8f9fa;
-        --white : #fff;
+        --white: #fff;
+        --red: hsl(342, 63%, 46%); 
+
 
         box-sizing: border-box;
         color: var(--text-color);
+
+        --hero-image: "https://www.curotec.com/wp-content/uploads/2022/04/developers-2.jpg?w=1024";
     }
 
     *,
@@ -86,14 +90,17 @@
     }
 
     body {
-        margin:0;
+        margin: 0;
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.4;
         background-color: var(--extra-light-gray);
     }
-    
-    h1, h2, h3, h4{
-        font-family: Georgia, 'Times New Roman', Times, serif;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: Georgia, "Times New Roman", Times, serif;
     }
 
     a {
@@ -101,7 +108,7 @@
     }
 
     a:visited {
-        color:var(--brand-green);
+        color: var(--brand-green);
     }
 
     a:hover {
@@ -109,10 +116,10 @@
     }
 
     a:active {
-        color: red;
+        color: var(--red);
     }
 
-    /* ---- */
+    /* -- navbar -- */
 
     .nav-container {
         background-color: var(--medium-green);
@@ -128,19 +135,19 @@
     .home-link {
         color: var(--text-color);
         font-size: 1.6rem;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: Georgia, "Times New Roman", Times, serif;
         font-weight: bold;
         text-decoration: none;
-    }    
+    }
 
     .top-nav {
-        display:flex;
-        list-style-type:none;
+        display: flex;
+        list-style-type: none;
     }
 
     .top-nav a {
-        displa:block;
-        padding: .3em 1.25em;
+        displa: block;
+        padding: 0.3em 1.25em;
         color: var(--white);
         background-color: var(--brand-green);
         text-decoration: none;
@@ -159,5 +166,78 @@
     .top-nav__featured > a:hover {
         color: var(--medium-green);
         background-color: var(--white);
+    }
+
+    /*--- hero ---*/
+
+    .hero {
+        background-image: url("https://www.pureoffices.co.uk/wp-content/uploads/2019/05/Pure-Offices-Reading_full-size_001-scaled.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero__inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 50px 0 200px;
+        text-align: right;
+    }
+
+    .hero h2 {
+        font-size: 1.95rem;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 0.4em 1em;
+        color: var(--brand-green);
+        border: 2px solid var(--brand-green);
+        border-radius: 0.2em;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .button:hover {
+        background-color: var(--drak-green);
+        color: var(--white);
+    }
+
+    .button--cta {
+        padding: 0.6em 1em;
+        background-color: var(--medium-green);
+        color: var(--white);
+        border: none;
+    }
+
+    /* main */
+
+    .container {
+        margin: 0 auto;
+        max-width: 1080px;
+    }
+    .tile-row {
+        display: flex;
+    }
+    .tile-row > * {
+        flex: 1;
+    }
+    .tile {
+        background-color: var(--white);
+        border-radius: 0.3em;
+    }
+
+    .page-footer {
+        margin-top: 0.3em;
+        padding: 1em 0;
+        background-color: var(--light-gray);
+        color: var(--gray);
+    }
+
+    .page-footer__inner {
+        margin: 0 auto;
+        max-width: 1080px;
+        text-align: center;
+        font-size: 0.8rem;
     }
 </style>
