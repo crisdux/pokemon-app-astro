@@ -31,7 +31,7 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
     description={`Información sobre el pokemon ${name}`}
     image={imageSrc}
 >
-    <section class="mt-10 mx-10 flex flex-col justify-center items-center">
+    <section class="trans mt-10 mx-10 flex flex-col justify-center items-center">
         <div>
             <button class="text-blue-500" onclick="history.back()">
                 Regresar
@@ -47,4 +47,12 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
     a {
         @apply hover:underline text-blue-500;
     }
+
+    .trans {
+        transition: transform 0.2s ease-in-out;
+    }
+    .trans:hover {
+        transform: scale(1.02);
+    }
+
 </style>
